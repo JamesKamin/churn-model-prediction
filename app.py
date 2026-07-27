@@ -7,9 +7,9 @@ import pickle
 
 @st.cache_resource
 def load_artifacts():
-    with open("/tmp/churn_rf_healthy_meals_2023.pkl", "rb") as f:
+    with open("churn_rf_healthy_meals_2023.pkl", "rb") as f:
         model = pickle.load(f)
-    with open("/tmp/churn_encoder_healthy_meals_2023.pkl", "rb") as f:
+    with open("churn_encoder_healthy_meals_2023.pkl", "rb") as f:
         encoder = pickle.load(f)
     return model, encoder
 
