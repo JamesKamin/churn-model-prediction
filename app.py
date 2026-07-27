@@ -15,12 +15,12 @@ def load_artifacts():
 
 model, encoder = load_artifacts()
 
+# ── UI ────────────────────────────────────────────────────────────────────────
 
 st.title("Customer Renewal Probability Predictor")
 st.write("Enter customer attributes to predict the likelihood of subscription renewal.")
 
 age               = st.number_input("Age", min_value=18, max_value=100, value=35)
-avg_num_active_session_per_quarter = st.number_input("Average Number of Active Sessions Per Quarter", min_value=1, max_value=100, value=35)
 income_level      = st.radio("Income Level",  ["Low", "Medium", "High", "Very High"])
 education         = st.radio("Education",     ["Graduate", "High School", "Other", "Post-Graduate"])
 device_type       = st.radio("Device Type",   ["Desktop-only", "Mobile-only", "Multi-device"])
@@ -43,7 +43,6 @@ if st.button("Predict"):
     numeric_df = pd.DataFrame([{
         'AGE':                age,
         'TECH_COMFORT_SCORE': tech_comfort_score,
-        'AVG_SESSIONS_PER_ACTIVE_QUARTER': avg_num_active_session_per_quarter
     }])
 
     input_df = pd.concat([numeric_df, encoded_df], axis=1)
